@@ -147,22 +147,37 @@
     .toggle_menu {
         top: -1px;
     }
-    .services_section_2::before {
+    .about_section_2::before {
         display: none;
     }
-    .services_section_2::after {
+    .how_does_it_work_section_2::before {
+        display: none;
+    }
+    .about_section_2::after {
+        display: none;
+    }
+    .how_does_it_work_section_2::after {
         display: none;
     }
     .box_main {
         margin: 0px 6px;
     }
-    .services_section_2 {
+    .about_section_2 {
+        background-image: initial;
+    }
+    .how_does_it_work_section_2 {
         background-image: initial;
     }
     .about_section {
         background-image: initial;
     }
+    .sign_up_section {
+        background-image: initial;
+    }
     .about_taital_main {
+        padding-left: 15px;
+    }
+    .sign_up_taital_main {
         padding-left: 15px;
     }
     .work_taital_main {
@@ -222,25 +237,43 @@
     .image_1 {
         padding-top: 40px;
     }
-    .services_section {
+    .about_section {
         padding-bottom: 120px;
     }
-    .services_text {
+    .how_does_it_work_section {
+        padding-bottom: 120px;
+    }
+    .about_text {
+        width: 100%;
+    }
+    .how_does_it_work_text {
         width: 100%;
     }
     .box_section_main {
         display: initial;
     }
-    .services_section_2::before {
+    .how_does_it_work_section_main {
+        display: initial;
+    }
+    .about_section_2::before {
+        display: none;
+    }
+    .how_does_it_work_section_2::before {
         display: none;
     }
     .box_main {
         margin: 0px;
     }
-    .services_section_2 {
+    .about_section_2 {
+        background-image: initial;
+    }
+    .how_does_it_work_section_2 {
         background-image: initial;
     }
     .about_section {
+        background-image: initial;
+    }
+    .sign_up_section {
         background-image: initial;
     }
     .read_bt a {
@@ -319,10 +352,17 @@
     .about_taital_main {
         padding: 0px;
     }
+    .sign_up_taital_main {
+        padding: 0px;
+    }
     .work_section {
         padding-top: 0px;
     }
     .about_taital::after {
+        width: 50px;
+        left: 170px;
+    }
+    .sign_up_taital::after {
         width: 50px;
         left: 170px;
     }
@@ -357,25 +397,43 @@
     .image_1 {
         padding-top: 40px;
     }
-    .services_section {
+    .about_section {
         padding-bottom: 120px;
     }
-    .services_text {
+    .how_does_it_work_section {
+        padding-bottom: 120px;
+    }
+    .about_text {
+        width: 100%;
+    }
+    .how_does_it_work_text {
         width: 100%;
     }
     .box_section_main {
         display: initial;
     }
-    .services_section_2::before {
+    .how_does_it_work_section_main {
+        display: initial;
+    }
+    .about_section_2::before {
+        display: none;
+    }
+    .how_does_it_work_section_2::before {
         display: none;
     }
     .box_main {
         margin: 0px;
     }
-    .services_section_2 {
+    .about_section_2 {
+        background-image: initial;
+    }
+    .how_does_it_work_section_2 {
         background-image: initial;
     }
     .about_section {
+        background-image: initial;
+    }
+    .sign_up_section {
         background-image: initial;
     }
     .read_bt a {
@@ -458,6 +516,9 @@
     .about_taital_main {
         padding: 0px;
     }
+    .sign_up_taital_main {
+        padding: 0px;
+    }
     .work_section {
         padding-top: 0px;
     }
@@ -498,25 +559,43 @@
     .image_1 {
         padding-top: 40px;
     }
-    .services_section {
+    .about_section {
         padding-bottom: 120px;
     }
-    .services_text {
+    .how_does_it_work_section {
+        padding-bottom: 120px;
+    }
+    .about_text {
+        width: 100%;
+    }
+    .how_does_it_work_text {
         width: 100%;
     }
     .box_section_main {
         display: initial;
     }
-    .services_section_2::before {
+    .how_does_it_work_section_main {
+        display: initial;
+    }
+    .about_section_2::before {
+        display: none;
+    }
+    .how_does_it_work_section_2::before {
         display: none;
     }
     .box_main {
         margin: 0px;
     }
-    .services_section_2 {
+    .about_section_2 {
+        background-image: initial;
+    }
+    .how_does_it_work_section_2 {
         background-image: initial;
     }
     .about_section {
+        background-image: initial;
+    }
+    .sign_up_section {
         background-image: initial;
     }
     .read_bt a {
@@ -597,6 +676,9 @@
         margin-top: 30px;
     }
     .about_taital_main {
+        padding: 0px;
+    }
+    .sign_up_taital_main {
         padding: 0px;
     }
     .work_section {

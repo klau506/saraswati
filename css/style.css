@@ -210,6 +210,7 @@ button {
 .svg_section_main {
     width: 100%;
     position: relative;
+    overflow: hidden !important;
 }
 
 .banner_bg {
@@ -309,18 +310,15 @@ button {
 .shoping_bag {
     float: left;
     text-align: center !important;
-    padding-left: 40px;
+    padding-left: 60px;
     padding-top: 8px;
 }
 
-.togle_3 {
-    float: left;
-    width: 70%;
-}
-
-menu_text {
+.menu_text {
     float: right;
     width: 30%;
+    padding-left: 100px;
+    padding-top: -10px;
 }
 
 .search_icon {
@@ -421,15 +419,15 @@ menu_text {
 /* banner section end */
 
 
-/* services section start */
+/* about section start */
 
-.services_section {
+.about_section {
     width: 100%;
     position: relative;
     padding-bottom: 90px;
 }
 
-.services_taital {
+.about_taital {
     width: 100%;
     float: left;
     font-size: 40px;
@@ -438,7 +436,7 @@ menu_text {
     position: relative;
 }
 
-.services_taital::after {
+.about_taital::after {
     content: '';
     position: absolute;
     background-color: #ffffff;
@@ -450,7 +448,7 @@ menu_text {
     top: 28px;
 }
 
-.services_text {
+.about_text {
     width: 38%;
     float: left;
     font-size: 16px;
@@ -458,7 +456,7 @@ menu_text {
     margin: 0px;
 }
 
-.services_section_2 {
+.about_section_2 {
     width: 100%;
     padding-top: 50px;
     background-image: linear-gradient(90deg, #ffffff 20%, #f5f5f5 50%);
@@ -531,7 +529,7 @@ menu_text {
     background-color: #ff4f5a;
 }
 
-.services_section_2::after {
+.about_section_2::after {
     content: '';
     position: absolute;
     width: 50px;
@@ -545,7 +543,92 @@ menu_text {
     margin-top: -220px;
 }
 
-.services_section_2::before {
+.about_section_2::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: initial;
+    right: 50px;
+    margin: 0 auto;
+    background-image: url(../images/round-icon2.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-top: 10px;
+}
+
+
+/* about section end */
+
+
+
+
+/* how_does_it_work section start */
+
+.how_does_it_work_section {
+    width: 100%;
+    position: relative;
+    padding-left: 110px;
+    padding-bottom: 50px;
+}
+
+.how_does_it_work_taital {
+    width: 100%;
+    float: left;
+    font-size: 40px;
+    color: #ffffff;
+    font-weight: bold;
+    position: relative;
+}
+
+.how_does_it_work_taital::after {
+    content: '';
+    position: absolute;
+    background-color: #ffffff;
+    width: 80px;
+    height: 3px;
+    left: 210px;
+    right: initial;
+    margin: 0 auto;
+    top: 28px;
+}
+
+.how_does_it_work_text {
+    width: 38%;
+    float: left;
+    font-size: 16px;
+    color: #ffffff;
+    margin: 0px;
+    padding-left: 40px;
+}
+
+.how_does_it_work_section_2 {
+    width: 100%;
+    height: auto;
+    padding-top: 20px;
+    background-color: #ffffff;
+}
+
+.how_does_it_work_section_main {
+    position: relative;
+    padding-left: 40px;
+}
+
+.how_does_it_work_section_2::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 50px;
+    right: initial;
+    margin: 0 auto;
+    background-image: url(../images/round-icon1.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-top: 550px;
+}
+
+.how_does_it_work_section_2::before {
     content: '';
     position: absolute;
     width: 50px;
@@ -556,87 +639,83 @@ menu_text {
     background-image: url(../images/round-icon2.png);
     background-repeat: no-repeat;
     background-size: 100%;
-    margin-top: 0px;
+    margin-top: 10px;
 }
 
 
-/* services section end */
+/* how_does_it_work section end */
 
+/* sign_up section start */
 
-/* about section start */
-
-.about_section {
+.sign_up_section {
     width: 100%;
     animation: relative;
     margin: 0 auto;
     background-image: linear-gradient(90deg, #ffffff 20%, #f5f5f5 50%);
     margin-top: 90px;
     padding-bottom: 50px;
+    padding-top: 650px;
+    height: auto;
 }
 
-.about_taital {
+.sign_up_taital_main {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: right;
+}
+
+.sign_up_taital {
+    width: 100%;
+    float: left;
+    font-size: 50px;
+    color: #385a64;
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 50px;
+    padding: 10px 0px;
+}
+
+.sign_up_text {
     width: 100%;
     float: left;
     font-size: 40px;
-    color: #ffffff;
+    color: #385a64;
+    text-align: center;
     font-weight: bold;
     position: relative;
 }
 
-.about_taital::after {
-    content: '';
-    position: absolute;
-    background-color: #ffffff;
-    width: 80px;
-    height: 3px;
-    left: 180px;
-    right: initial;
+.sign_up_bt_2 {
+    width: 22.5%;
     margin: 0 auto;
-    top: 28px;
+    text-align: center;
+    justify-content: center;
 }
 
-.read_bt_1 {
-    width: 100%;
-    float: left;
-    margin-top: 30px;
-}
-
-.read_bt_1 a {
+.sign_up_bt_2 a {
     width: 170px;
     float: left;
-    font-size: 18px;
+    font-size: 20px;
     color: #ffffff;
     text-align: center;
     background-color: #ff4f5a;
     padding: 8px 5px;
     border-radius: 5px;
+    margin-top: 70px;
+    justify-content: center;
 }
 
-.read_bt_1 a:hover {
+.sign_up_bt_2 a:hover {
     color: #ffffff;
     background-color: #385a64;
 }
 
-.about_taital_main {
-    padding-left: 50px;
-    padding-top: 60px;
-}
-
-.about_text {
-    width: 100%;
-    float: left;
-    font-size: 16px;
-    color: #ffffff;
-    margin: 0px;
-}
-
-.images_main {
-    width: 100%;
-    display: flex;
-}
 
 
-/* about section end */
+/* sign_up section end */
 
 
 /* work section start */
@@ -705,9 +784,11 @@ menu_text {
     float: left;
     background-color: #fff;
     padding: 30px;
+    padding-left: 20px;
     border-radius: 100px;
     box-shadow: 0px 0px 30px 1px;
-    margin-left: 20px;
+    margin-left: 100px;
+    margin-top: 15px;
 }
 
 .lorem_text {
@@ -717,7 +798,6 @@ menu_text {
     color: #2d2d2d;
     margin: 0px;
     text-align: left;
-    font-family: Poppins;
 }
 
 .read_bt_2 {
@@ -752,6 +832,8 @@ menu_text {
 .footer_section_main {
     width: 100%;
     position: relative;
+    overflow-y: hidden !important;
+    padding-bottom: 20px;
 }
 
 .footer_bg {
@@ -909,7 +991,6 @@ menu_text {
     text-align: center;
     margin: 0px;
     color: #ffffff;
-    font-family: Raleway;
     padding: 20px 40px 20px 40px;
 }
 
@@ -965,7 +1046,6 @@ menu_text {
     font-size: 36px;
     color: #ffffff;
     font-weight: bold;
-    font-family: Raleway;
 }
 
 .mail_section_1 {
