@@ -1,22 +1,3 @@
-function onOpen() {
-  const ui = SpreadsheetApp.getUi();
-  ui.createMenu('My Custom Menu')
-      .addItem('Say Hello', 'helloWorld')
-      .addItem('Save Data', 'saveData')
-      .addToUi();
-}
-
-// function to save data
-function saveData() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const sheet = ss.getSheets()[0];
-  const url = sheet.getRange('Sheet1!A1').getValue();
-  const follower_count = sheet.getRange('Sheet1!B1').getValue();
-  const date = sheet.getRange('Sheet1!C1').getValue();
-  sheet.appendRow([url,follower_count,date]);
-}
-
-
 function insertDataInSheet2(mail_vec, ensenyar_vec, aprendre_vec) {
   var spreadsheet = SpreadsheetApp.openById("1nRQibzFbMquGppsPTQTK0P1rmbx6WUiXhzGhxOZLE50"); // Replace with your spreadsheet ID
   var sheet = spreadsheet.getSheetByName("Groups"); // Replace with your sheet name
@@ -24,7 +5,7 @@ function insertDataInSheet2(mail_vec, ensenyar_vec, aprendre_vec) {
   // Get the last row with content in the sheet
   var lastRow = sheet.getLastRow();
   var id = sheet.getRange("A"+lastRow).getValue() + 1
-  
+
   var data = [
     [id, mail_vec[0], ensenyar_vec[0], aprendre_vec[0]],
     [id, mail_vec[1], ensenyar_vec[1], aprendre_vec[1]],
@@ -34,7 +15,32 @@ function insertDataInSheet2(mail_vec, ensenyar_vec, aprendre_vec) {
   sheet.getRange(lastRow + 1, 1, data.length, data[0].length).setValues(data);
 }
 
+function cleanResponses () {
+  var spreadsheet = SpreadsheetApp.openById("1nRQibzFbMquGppsPTQTK0P1rmbx6WUiXhzGhxOZLE50");
+  var sheet = spreadsheet.getSheetByName("Respostes al formulari 1");
+  var cd_sheet = spreadsheet.getSheetByName("Cleaned_data");
 
+  var lastRow = sheet.getLastRow()
+
+  var teach_original = sheet.getRange("E"+lastRow).getValue()
+  var learn_original = sheet.getRange("F"+lastRow).getValue()
+
+  var teach_vec = teach_original.split(",");
+  var learn_vec = learn_original.split(",");
+
+  // Get the data from the row to duplicate
+  var tmp_row = sheet.getRange(lastRow, 1, 1, sheet.getLastColumn()).getValues()[0];
+  for (var i = 0; i < teach_vec.length; i++) {
+    for (var j = 0; j < learn_vec.length; j++) {
+      // modify row with the current teaching and learning languages
+      tmp_row[4] = teach_vec[i];
+      tmp_row[5] = learn_vec[j];
+
+      var cd_lastRow = cd_sheet.getLastRow()
+      cd_sheet.getRange(cd_lastRow + 1, 1, 1, tmp_row.length).setValues([tmp_row]);
+    }
+  }
+}
 
 function readDataFromSpreadsheet() {
   var spreadsheet = SpreadsheetApp.openById("1nRQibzFbMquGppsPTQTK0P1rmbx6WUiXhzGhxOZLE50"); // Replace with your spreadsheet ID
@@ -62,4 +68,10 @@ function readDataFromSpreadsheet() {
       }
     }
   }
+}
+
+
+function main () {
+  // send last row to "claned_data" sheat
+  // check groups again
 }
