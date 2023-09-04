@@ -38,8 +38,8 @@ function cleanResponses () {
 
   var teach_original = sheet.getRange("E"+lastRow).getValue()
   var learn_original = sheet.getRange("F"+lastRow).getValue()
-  var teach_vec = teach_original.split(",");
-  var learn_vec = learn_original.split(",");
+  var teach_vec = teach_original.split(", ");
+  var learn_vec = learn_original.split(", ");
 
   // get the data from the current row
   var tmp_row = sheet.getRange(lastRow, 1, 1, sheet.getLastColumn()).getValues()[0];
@@ -57,39 +57,71 @@ function cleanResponses () {
   }
 }
 
+
+// findLastRowWithSameID
+// @return find the first row with the same ID (using the email as ID). The last row with this ID
+// is the last row of the cleaned_data sheet
+function findLastRowWithSameID() {
+  var spreadsheet = SpreadsheetApp.openById("1nRQibzFbMquGppsPTQTK0P1rmbx6WUiXhzGhxOZLE50");
+  var sheet = spreadsheet.getSheetByName("Cleaned_data");
+  
+  var lastRow = sheet.getLastRow();
+  var idColumn = 2; // mail column is our id column
+
+  var currentID = sheet.getRange(lastRow, idColumn).getValue();
+  var row = lastRow - 1;
+  
+  while (row >= 2 && sheet.getRange(row, idColumn).getValue() === currentID) {
+    currentID = sheet.getRange(row, idColumn).getValue();
+    row--;
+  }
+  
+  return (row + 1);
+}
+
+
 // readDataFromSpreadsheet
 // @return: read data from answers' sheet, check for matches and create the groups
 function readDataFromSpreadsheet() {
   var spreadsheet = SpreadsheetApp.openById("1nRQibzFbMquGppsPTQTK0P1rmbx6WUiXhzGhxOZLE50");
-  var sheet = spreadsheet.getSheetByName("Respostes al formulari 1");
+  var sheet = spreadsheet.getSheetByName("Cleaned_data");
 
-  // TODO: make it automatic to read from the second row to the last one with text
-  var mails = sheet.getRange("B2:B4").getValues();
-  var teach = sheet.getRange("E2:E4").getValues();
-  var learn = sheet.getRange("F2:F4").getValues();
+  // new entry row lines (first and last one)
+  var firstRow = findLastRowWithSameID();
+  var lastRow = sheet.getLastRow();
 
-  for (var i = 0; i < teach.length; i++) {
-    for (var j = i + 1; j < learn.length; j++) {
-      var teach1_value = teach[i][0];  // language that person1 teaches
-      var learn2_value = learn[j][0];  // language that person2 learns
+  // check for new group combinations
+  for (var i = firstRow; i <= lastRow; i++) {    // person1: new entry lines
+    for (var j = 2; j <= (firstRow-1); j++) {    // person2: rest of the entries
+      var teach1_value = sheet.getRange("E"+i+":E"+i).getValue();  // language that person1 teaches
+      var learn2_value = sheet.getRange("F"+j+":F"+j).getValue();  // language that person2 learns
 
       // if there's match
       if (teach1_value == learn2_value) {
         // check that the language that person1 learns is the same that person2 teaches
-        learn1_value = learn[i][0];
-        teach2_value = teach[j][0];
+        learn1_value = sheet.getRange("F"+i+":F"+i).getValue();
+        teach2_value = sheet.getRange("E"+j+":E"+j).getValue();
 
         if (learn1_value == teach2_value) {
-          Logger.log("Match!: " + mails[i][0] + " ensenya " + teach1_value + " i " + mails[j][0] + " ensenya " + teach2_value);
-          insertDataInSheet2([mails[j][0],mails[i][0]], [teach[j][0],teach[i][0]], [learn[j][0],learn[i][0]])
+          Logger.log("Match!: " + sheet.getRange("B"+i+":B"+i).getValue() + " ensenya " + sheet.getRange("E"+i+":E"+i).getValue() + " i " + sheet.getRange("B"+j+":B"+j).getValue() + " ensenya " + sheet.getRange("E"+j+":E"+j).getValue());
+          insertDataInGroupsSheet([sheet.getRange("B"+i+":B"+i).getValue(),sheet.getRange("B"+j+":B"+j).getValue()], 
+                                  [sheet.getRange("E"+i+":E"+i).getValue(),sheet.getRange("E"+j+":E"+j).getValue()],[sheet.getRange("F"+i+":F"+i).getValue(),sheet.getRange("F"+j+":F"+j).getValue()])
         }
       }
     }
   }
 }
 
-// TODO
+
+// main
+// @return: clean the new entries and check for new groups
 function main () {
   // send last row to "claned_data" sheat
+  cleanResponses()
   // check groups again with readDataFromSpreadsheet function but using the cleaned data sheet instead of the answers one
+  readDataFromSpreadsheet()
 }
+
+// TODO: do new checks to check for schedule and face-to-face/virtual preferences. Maybe create a new groups sheet based on the existing one
+// TODO: create column for "group_closed" and avoid these ones when creating groups
+// TODO: create multiple forms (one by language) and a google sheet to read from all of them, translate the languages, and create the groups
